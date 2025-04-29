@@ -1,12 +1,21 @@
 <main>
-  <app-learning-resources />
+  <app-learning-resources  appLog/>
 
   <hr />
 
   <app-auth />
 
-  
-  <ng-templete appAuth="admin">
+  <!-- <ng-templete appAuth="admin">
     <p appAuth="admin">Only Admin should see this</p>
-  </ng-templete>
+  </ng-templete> -->
+
+  <p *appAuth="'admin'" class="protected-content admin">
+    Only Admin should see this
+  </p>
+  <p *appAuth="'user'" class="protected-content unauth">
+    Regular users should see this
+  </p>
+  <p *appAuth="'guest'" class="protected-content auth">
+    Guest users should see this
+  </p>
 </main>
